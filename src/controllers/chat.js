@@ -38,9 +38,10 @@ export const sendMessage = async (req, res, next) => {
       parts: [{ text: chat.content }],
     }));
 
-    // Create chat session with gemini-3.6-flash
+    // Create chat session
+    const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.0-flash";
     const chat = ai.chats.create({
-      model: "gemini-3.6-flash",
+      model: GEMINI_MODEL,
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
         temperature: 0.7,

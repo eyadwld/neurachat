@@ -308,7 +308,3 @@ export const userLogout = async (req, res, next) => {
     return res.status(500).json({ message: "Error", error: err.message });
   }
 };
-
-const onefunction = async () => {
-  const aqzqwer = await User.findById(req.userId).lean();
-};

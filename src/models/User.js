@@ -8,7 +8,7 @@ const chatSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-});
+}, { timestamps: true });
 const userShcema = new mongoose.Schema({
     name: {
         type: String,
@@ -23,6 +23,10 @@ const userShcema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    role: {
+        type: String,
+        default: "user",
+    },
     chats: [chatSchema],
-});
+}, { timestamps: true });
 export default mongoose.model("User", userShcema);

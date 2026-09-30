@@ -45,7 +45,7 @@ export const userLogin = async (req, res, next) => {
         if (!user) {
             return res.status(401).json({ message: "User Not Resesters" });
         }
-        const isPasswordMatch = await bcrypt.compare(user?.password, password);
+        const isPasswordMatch = await bcrypt.compare(password, user?.password);
         if (!isPasswordMatch) {
             return res.status(403).json({ message: "Incorrect Password" });
         }
